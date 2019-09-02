@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure id="wac" class="org.eclipse.jetty.webapp.WebAppContext">
+	<New id="myDS" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg><Ref refid="wac" /></Arg>
+		<Arg>jdbc/datasource</Arg>
+		<Arg>
+			<New class="cdata.jdbc.mysql.MySQLDriver">
+				<Set name="url">jdbc:mysql:</Set>
+				<Set name="User">general</Set>
+				<Set name="Password">general</Set>
+				<Set name="Database">generic_use_schema</Set>
+				<Set name="Server">localhost</Set>
+				<Set name="Port">3306</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>
